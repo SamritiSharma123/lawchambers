@@ -46,6 +46,9 @@ The design follows a **minimal, premium, law-firm aesthetic** using a black and 
 ---
 
 ## 📂 Project Structure
+## 📂 Project Structure
+
+```bash
 law-website/
 │
 ├── public/                  # Static assets
@@ -62,7 +65,7 @@ law-website/
 │   │   ├── Contact.jsx
 │   │   ├── Footer.jsx
 │   │   └── Disclaimer.jsx
-│   │
+│
 │   ├── styles/              # CSS files
 │   │   ├── header.css
 │   │   ├── hero.css
@@ -70,7 +73,7 @@ law-website/
 │   │   ├── contact.css
 │   │   ├── footer.css
 │   │   └── disclaimer.css
-│   │
+│
 │   ├── App.jsx              # Main app layout
 │   └── main.jsx             # Entry point
 │
