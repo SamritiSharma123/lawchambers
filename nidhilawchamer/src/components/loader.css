@@ -1,0 +1,138 @@
+/* FULL SCREEN */
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #111 0%, #000 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+/* fade out */
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* soft golden glow */
+.bg-glow{
+  position:absolute;
+  width:400px;
+  height:400px;
+  background: radial-gradient(circle,#d4af3740,transparent 70%);
+  filter: blur(60px);
+  animation: glowPulse 4s infinite alternate;
+}
+
+/* OUTER RING */
+.ring1{
+  position:absolute;
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  border-top:3px solid #D4AF37;
+  border-bottom:3px solid #FFD700;
+  animation: spin 7s linear infinite;
+}
+
+/* INNER RING */
+.ring2{
+  position:absolute;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  border-left:3px solid #ffffff;
+  border-right:3px solid #D4AF37;
+  animation: spinReverse 9s linear infinite;
+}
+
+/* LOGO */
+.logo {
+  width: 300px;   /* balanced size */
+  z-index: 2;
+  margin-bottom: 12px;
+  animation: logoEntry 1.5s ease forwards;
+}
+
+/* NAME (FIXED VISIBILITY) */
+.law-name {
+  font-family: "Times New Roman", serif;
+  font-size: 40px;
+  letter-spacing: 3px;
+  color: #D4AF37;          /* solid visible gold */
+  margin: 6px 0;
+  text-align:center;
+  opacity: 0;
+  animation: fadeUp 2s ease forwards;
+  animation-delay: 0.8s;
+}
+
+/* TAGLINE */
+.tagline {
+  font-size: 25px;
+  color: #ffffff;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  opacity: 0;
+  animation: taglineFade 2.5s ease forwards;
+  animation-delay: 1.5s;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+/* ANIMATIONS */
+@keyframes spin{
+  from{ transform:rotate(0deg);}
+  to{ transform:rotate(360deg);}
+}
+
+@keyframes spinReverse{
+  from{ transform:rotate(360deg);}
+  to{ transform:rotate(0deg);}
+}
+
+@keyframes logoEntry{
+  0%{
+    transform: scale(0.7);
+    opacity:0;
+  }
+  100%{
+    transform: scale(1);
+    opacity:1;
+  }
+}
+@keyframes taglineFade {
+  0% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+}
+.loader-content{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:5;
+}
+@keyframes fadeUp{
+  0%{
+    transform:translateY(20px);
+    opacity:0;
+  }
+  100%{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
+
+@keyframes glowPulse{
+  from{ opacity:0.3;}
+  to{ opacity:0.8;}
+}

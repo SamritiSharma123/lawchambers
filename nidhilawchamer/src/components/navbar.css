@@ -1,0 +1,42 @@
+.navbar{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:#0c1324;
+  color:white;
+  z-index:1000;
+}
+
+.nav-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-family:'Playfair Display',serif;
+  color:#D4AF37;
+  letter-spacing:1px;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+
+.nav-links li{
+  cursor:pointer;
+  font-family:'Inter';
+}
+
+.nav-btn{
+  background:#D4AF37;
+  border:none;
+  padding:10px 18px;
+  font-weight:600;
+  cursor:pointer;
+}

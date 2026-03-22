@@ -1,0 +1,129 @@
+/* ============================= */
+/* PREMIUM LAW DISCLAIMER STYLE  */
+/* ============================= */
+
+.disclaimer-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+/* MAIN BOX */
+.disclaimer-box{
+  position:relative;
+  width:60%;
+  max-width:900px;
+  background:#ffffff;
+  padding:45px 50px;
+  border:2px dashed #bfbfbf;
+  border-radius:8px;
+  color:#2b2b2b;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.35);
+
+  animation:popup 0.45s ease;
+}
+
+/* CLOSE BUTTON */
+.close-btn{
+  position:absolute;
+  top:14px;
+  right:18px;
+  background:none;
+  border:none;
+  font-size:20px;
+  cursor:pointer;
+  color:#555;
+  transition:0.3s;
+}
+
+.close-btn:hover{
+  color:#000;
+}
+
+/* HEADING */
+.disclaimer-box h2{
+  text-align:center;
+  font-family:"Playfair Display", serif;
+  font-size:34px;
+  letter-spacing:2px;
+  color:#1b1b1b;
+  margin-bottom:18px;
+}
+
+/* GOLD DIVIDER */
+.disclaimer-box h2::after{
+  content:"";
+  display:block;
+  width:90px;
+  height:2px;
+  background:#D4AF37;
+  margin:12px auto 0;
+}
+
+/* PARAGRAPH */
+.disclaimer-box p{
+  font-family:"Inter", sans-serif;
+  font-size:15px;
+  line-height:1.75;
+  margin-bottom:20px;
+  color:#444;
+}
+
+/* LIST */
+.disclaimer-box ul{
+  margin-left:22px;
+  margin-bottom:30px;
+}
+
+.disclaimer-box li{
+  font-family:"Inter", sans-serif;
+  font-size:15px;
+  line-height:1.75;
+  margin-bottom:14px;
+  padding-left:4px;
+}
+
+/* GOLD BULLETS */
+.disclaimer-box li::marker{
+  color:#D4AF37;
+  font-size:18px;
+}
+
+/* BUTTON */
+.agree-btn{
+  display:block;
+  margin:0 auto;
+  padding:12px 32px;
+  background:linear-gradient(135deg,#D4AF37,#caa12c);
+  border:none;
+  color:#fff;
+  font-weight:600;
+  font-family:"Inter", sans-serif;
+  letter-spacing:1px;
+  border-radius:5px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.agree-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(212,175,55,0.4);
+}
+
+/* ANIMATION */
+@keyframes popup{
+  from{
+    transform:translateY(-25px);
+    opacity:0;
+  }
+  to{
+    transform:translateY(0);
+    opacity:1;
+  }
+}
