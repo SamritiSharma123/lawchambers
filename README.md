@@ -44,8 +44,6 @@ The design follows a **minimal, premium, law-firm aesthetic** using a black and 
 - Vercel (Deployment)
 
 ---
-
-## 📂 Project Structure
 ## 📂 Project Structure
 
 ```bash
