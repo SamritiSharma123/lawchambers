@@ -5,32 +5,35 @@ import Home from "./pages/Home";
 
 function App() {
 
-  // loader state
   const [loading, setLoading] = useState(true);
-
-  // disclaimer agreement state
   const [agreed, setAgreed] = useState(false);
 
   /* Loader timer */
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000); // loader duration
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, []);
 
+  /* 🔥 SCROLL CONTROL (MAIN FIX) */
+  useEffect(() => {
+    if (loading || !agreed) {
+      document.body.style.overflow = "hidden";  // lock scroll
+    } else {
+      document.body.style.overflow = "auto";    // unlock scroll ✅
+    }
+  }, [loading, agreed]);
+
   return (
     <>
-      {/* STEP 1 — Loader */}
       {loading && <Loader />}
 
-      {/* STEP 2 — Disclaimer */}
       {!loading && !agreed && (
         <Disclaimer onAgree={() => setAgreed(true)} />
       )}
 
-      {/* STEP 3 — Website */}
       {!loading && agreed && <Home />}
     </>
   );
