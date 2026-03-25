@@ -1,5 +1,5 @@
 .hero {
-  height: 100vh;
+  min-height: 100vh; /* FIXED */
   background:
     linear-gradient(rgba(3,10,22,0.85), rgba(3,10,22,0.9)),
     url("/hero1.jpg");
@@ -9,7 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 80px;
+
+  padding: 100px 20px 60px; /* better spacing */
 }
 
 /* CONTENT */
@@ -20,9 +21,10 @@
 
 /* TITLE */
 .hero h1 {
-  font-size: 54px;
+  font-size: 48px;
   color: white;
   font-weight: 300;
+  line-height: 1.2;
 }
 
 .hero span {
@@ -32,9 +34,10 @@
 
 /* TEXT */
 .hero p {
-  margin: 20px 0;
+  margin: 18px 0;
   color: #ccc;
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 /* BUTTON */
@@ -43,7 +46,7 @@
   margin-top: 10px;
 
   background: #d4af37;
-  padding: 14px 34px;
+  padding: 14px 30px;
   border-radius: 40px;
   text-decoration: none;
   color: black;
@@ -59,7 +62,7 @@
 
 /* QR SECTION */
 .hero-qr {
-  margin-top: 40px;
+  margin-top: 35px;
   text-align: center;
 }
 
@@ -73,8 +76,8 @@
 }
 
 .qr-frame img {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   display: block;
   border-radius: 6px;
   background: #fff;
@@ -85,4 +88,52 @@
   margin-top: 10px;
   font-size: 13px;
   color: #aaa;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  .hero {
+    padding: 90px 15px 50px;
+  }
+
+  .hero h1 {
+    font-size: 32px; /* BIG FIX */
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .qr-frame img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* EXTRA SMALL */
+@media(max-width:480px){
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .hero-btn {
+    width: 100%;           /* full-width button */
+    max-width: 260px;
+  }
+
+  .qr-frame img {
+    width: 80px;
+    height: 80px;
+  }
 }
