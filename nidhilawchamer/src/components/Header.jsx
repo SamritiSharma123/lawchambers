@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./header.css";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="header">
       <div className="nav-container">
@@ -14,18 +17,33 @@ export default function Header() {
           </div>
         </div>
 
-        {/* MENU */}
-        <nav className="nav-links">
-          <a href="#hero">Home</a>
-          <a href="#practice">Practice Areas</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+        {/* NAV LINKS */}
+        <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
+          <a href="#hero" onClick={() => setMenuOpen(false)}>Home</a>
+          <a href="#practice" onClick={() => setMenuOpen(false)}>Practice Areas</a>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+
+          {/* CTA inside menu for mobile */}
+          <a href="tel:9988908205" className="call-btn mobile-call">
+            Call Now
+          </a>
         </nav>
 
-        {/* CTA */}
-        <a href="tel:9988908205" className="call-btn">
+        {/* DESKTOP CTA */}
+        <a href="tel:9988908205" className="call-btn desktop-call">
           Call Now
         </a>
+
+        {/* HAMBURGER */}
+        <div 
+          className={`menu-toggle ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
       </div>
     </header>
