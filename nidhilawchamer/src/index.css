@@ -11,9 +11,7 @@ html, body{
 html, body {
   overflow-x: hidden;
   scroll-behavior: smooth;
-}
-html, body{
-  overflow-x:hidden;
+  touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
 }
 img{
