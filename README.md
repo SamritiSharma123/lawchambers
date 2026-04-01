@@ -5,7 +5,7 @@ A modern, responsive, and professional legal website built using React, designed
 ---
 
 ## 🌐 Live Website
-🔗\www.chambersofadvnidhisharma108.in
+🔗www.chambersofadvnidhisharma108.in
 
 ---
 
