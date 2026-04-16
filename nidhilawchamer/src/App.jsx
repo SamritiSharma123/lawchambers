@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Loader from "./components/Loader";
 import Disclaimer from "./components/Disclaimer";
 import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
+import Admin from "./pages/Admin";
 
 function App() {
-
   const [loading, setLoading] = useState(true);
   const [agreed, setAgreed] = useState(false);
 
-  /* Loader timer */
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -17,25 +19,26 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  /* 🔥 SCROLL CONTROL (MAIN FIX) */
   useEffect(() => {
     if (loading || !agreed) {
-      document.body.style.overflow = "hidden";  // lock scroll
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto";    // unlock scroll ✅
+      document.body.style.overflow = "auto";
     }
   }, [loading, agreed]);
 
+  if (loading) return <Loader />;
+
+  if (!agreed) return <Disclaimer onAgree={() => setAgreed(true)} />;
+
   return (
-    <>
-      {loading && <Loader />}
-
-      {!loading && !agreed && (
-        <Disclaimer onAgree={() => setAgreed(true)} />
-      )}
-
-      {!loading && agreed && <Home />}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
