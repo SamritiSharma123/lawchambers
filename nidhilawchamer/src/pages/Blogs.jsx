@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { supabase } from "../lib/supabase";
+import "./blogs.css";
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
@@ -18,24 +20,34 @@ export default function Blogs() {
   }
 
   return (
-    <div style={{ padding: "40px" }}>
-      <h1>Legal Blogs</h1>
+    <div className="blogs-page">
+      <header className="blogs-header">
+        <h1>Legal Blogs</h1>
+        <p>Expert legal insights, updates, and practical guidance.</p>
 
-      {blogs.map((blog) => (
-        <div
-          key={blog.id}
-          style={{
-            padding: "20px",
-            marginBottom: "20px",
-            border: "1px solid #ddd",
-            borderRadius: "12px"
-          }}
-        >
-          <h2>{blog.title}</h2>
-          {blog.image && <img src={blog.image} width="250" />}
-          <p>{blog.content}</p>
+        <div className="blogs-actions">
+          <Link to="/" className="home-btn">← Home</Link>
         </div>
-      ))}
+      </header>
+
+      <div className="blogs-grid">
+        {blogs.map((blog) => (
+          <article className="blog-card" key={blog.id}>
+            {blog.image && (
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="blog-image"
+              />
+            )}
+
+            <div className="blog-content">
+              <h2>{blog.title}</h2>
+              <p>{blog.content}</p>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
