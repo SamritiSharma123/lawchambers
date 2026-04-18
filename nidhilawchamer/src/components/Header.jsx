@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./header.css";
 
 export default function Header() {
@@ -20,12 +21,25 @@ export default function Header() {
         {/* NAV LINKS */}
         <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
           <a href="#hero" onClick={() => setMenuOpen(false)}>Home</a>
-          <a href="#practice" onClick={() => setMenuOpen(false)}>Practice Areas</a>
+
+          <a href="#practice" onClick={() => setMenuOpen(false)}>
+            Practice Areas
+          </a>
+
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+
+          <Link to="/blogs" onClick={() => setMenuOpen(false)}>
+            Blogs
+          </Link>
+
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
 
           {/* CTA inside menu for mobile */}
-          <a href="tel:9988908205" className="call-btn mobile-call">
+          <a
+            href="tel:9988908205"
+            className="call-btn mobile-call"
+            onClick={() => setMenuOpen(false)}
+          >
             Call Now
           </a>
         </nav>
@@ -36,7 +50,7 @@ export default function Header() {
         </a>
 
         {/* HAMBURGER */}
-        <div 
+        <div
           className={`menu-toggle ${menuOpen ? "open" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
